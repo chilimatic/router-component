@@ -120,7 +120,7 @@ class MapObject extends Generic
                 } else {
                     $value = $tokenList[$i]['value'];
                 }
-                $object->$m($value);
+                $object->{$m}($value);
             }
         }
 

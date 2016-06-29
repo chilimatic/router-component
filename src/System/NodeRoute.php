@@ -24,7 +24,7 @@ class NodeRoute extends AbstractRoute
     /**
      * @param string $path
      */
-    public function __construct($path)
+    public function __construct(string $path)
     {
         $this->binaryTree = new BinaryTree();
         parent::__construct($path);
@@ -72,7 +72,7 @@ class NodeRoute extends AbstractRoute
      * @throws RouteException
      * @return void
      */
-    public function addRoute($uri, $callback, $delimiter = Map::DEFAULT_URL_DELIMITER)
+    public function addRoute(string $uri, $callback, $delimiter = Map::DEFAULT_URL_DELIMITER)
     {
         try {
             /**

@@ -14,7 +14,7 @@ class RouteSystemFactory
      *
      * @return AbstractRoute
      */
-    public static function make($type = 'Default', $param)
+    public static function make(string $type = 'Default', $param)
     {
         $className = __NAMESPACE__ . "\\{$type}Route";
 

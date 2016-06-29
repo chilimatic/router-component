@@ -21,7 +21,7 @@ class UrlParser implements IFlyWeightParser
      *
      * @return string
      */
-    private function getCleanPath($path)
+    private function getCleanPath(string $path) : string
     {
         // remove the first slash for safety reasons [delimitor mapping] based on the web-server Rewrite
         if (mb_strpos($path, $this->delimiter) === 0) {
@@ -51,7 +51,7 @@ class UrlParser implements IFlyWeightParser
      *
      * @return array
      */
-    public function parse($content)
+    public function parse(string $content) : array
     {
         // if there is no path it's not needed to try to get a clean one
         if (empty($content)) {

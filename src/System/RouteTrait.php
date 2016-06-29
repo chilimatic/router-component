@@ -72,7 +72,7 @@ Trait RouteTrait
     private $defaultUrlDelimiter = '/';
 
     /**
-     * @var \chilimatic\lib\Route\Map\MapFactory
+     * @var MapFactory
      */
     private $mapFactory;
 
@@ -134,7 +134,7 @@ Trait RouteTrait
      *
      * @return \chilimatic\lib\Route\Map
      */
-    public function buildRouteMap($path, $config, $delimiter = Map::DEFAULT_URL_DELIMITER)
+    public function buildRouteMap(string $path, $config, $delimiter = Map::DEFAULT_URL_DELIMITER)
     {
         try {
             if (!$this->getMapFactory()) {
@@ -158,7 +158,7 @@ Trait RouteTrait
      *
      * @return string
      */
-    private function generateClassName($namespace, $module, $controllerPath, $class)
+    private function generateClassName(string $namespace, string $module, string $controllerPath, string $class)
     {
         return [$namespace, $module, $controllerPath, ucfirst($this->transformer->transform($class))];
     }
@@ -236,7 +236,7 @@ Trait RouteTrait
     /**
      * @return string
      */
-    public function getActionSuffix()
+    public function getActionSuffix() : string
     {
         return $this->actionSuffix;
     }
@@ -246,7 +246,7 @@ Trait RouteTrait
      *
      * @return $this
      */
-    public function setActionSuffix($actionSuffix)
+    public function setActionSuffix(string $actionSuffix)
     {
         $this->actionSuffix = $actionSuffix;
 
@@ -256,7 +256,7 @@ Trait RouteTrait
     /**
      * @return string
      */
-    public function getDefaultClass()
+    public function getDefaultClass() : string
     {
         return $this->defaultClass;
     }
@@ -264,7 +264,7 @@ Trait RouteTrait
     /**
      * @param string $defaultClass
      */
-    public function setDefaultClass($defaultClass)
+    public function setDefaultClass(string $defaultClass)
     {
         $this->defaultClass = $defaultClass;
     }
@@ -272,7 +272,7 @@ Trait RouteTrait
     /**
      * @return string
      */
-    public function getDefaultMethod()
+    public function getDefaultMethod() : string
     {
         return $this->defaultMethod;
     }
@@ -280,7 +280,7 @@ Trait RouteTrait
     /**
      * @param string $defaultMethod
      */
-    public function setDefaultMethod($defaultMethod)
+    public function setDefaultMethod(string $defaultMethod)
     {
         $this->defaultMethod = $defaultMethod;
     }
@@ -288,7 +288,7 @@ Trait RouteTrait
     /**
      * @return string
      */
-    public function getDefaultPath()
+    public function getDefaultPath() : string
     {
         return $this->defaultPath;
     }
@@ -296,13 +296,13 @@ Trait RouteTrait
     /**
      * @param string $defaultPath
      */
-    public function setDefaultPath($defaultPath)
+    public function setDefaultPath(string $defaultPath)
     {
         $this->defaultPath = $defaultPath;
     }
 
     /**
-     * @return \chilimatic\lib\Route\Map\MapFactory|null
+     * @return MapFactory|null
      */
     public function getMapFactory()
     {
@@ -310,9 +310,9 @@ Trait RouteTrait
     }
 
     /**
-     * @param \chilimatic\lib\Route\Map\MapFactory $mapFactory
+     * @param MapFactory $mapFactory
      */
-    public function setMapFactory(\chilimatic\lib\Route\Map\MapFactory $mapFactory)
+    public function setMapFactory(MapFactory $mapFactory)
     {
         $this->mapFactory = $mapFactory;
     }
@@ -320,7 +320,7 @@ Trait RouteTrait
     /**
      * @return string
      */
-    public function getDefaultNameSpace()
+    public function getDefaultNameSpace() : string
     {
         return $this->defaultAppNameSpace;
     }
@@ -328,7 +328,7 @@ Trait RouteTrait
     /**
      * @param string $defaultNameSpace
      */
-    public function setDefaultNameSpace($defaultNameSpace)
+    public function setDefaultNameSpace(string $defaultNameSpace)
     {
         $this->defaultNameSpace = $defaultNameSpace;
     }
@@ -336,7 +336,7 @@ Trait RouteTrait
     /**
      * @return string
      */
-    public function getDefaultUrlDelimiter()
+    public function getDefaultUrlDelimiter()  : string
     {
         return $this->defaultUrlDelimiter;
     }
@@ -344,7 +344,7 @@ Trait RouteTrait
     /**
      * @param string $defaultUrlDelimiter
      */
-    public function setDefaultUrlDelimiter($defaultUrlDelimiter)
+    public function setDefaultUrlDelimiter(string $defaultUrlDelimiter)
     {
         $this->defaultUrlDelimiter = $defaultUrlDelimiter;
     }
@@ -353,7 +353,7 @@ Trait RouteTrait
     /**
      * @return string
      */
-    public function getDefaultModule()
+    public function getDefaultModule()  : string
     {
         return $this->defaultModule;
     }
@@ -363,7 +363,7 @@ Trait RouteTrait
      *
      * @return $this
      */
-    public function setDefaultModule($defaultModule)
+    public function setDefaultModule(string $defaultModule)
     {
         $this->defaultModule = $defaultModule;
 
@@ -373,7 +373,7 @@ Trait RouteTrait
     /**
      * @return string
      */
-    public function getDefaultControllerPath()
+    public function getDefaultControllerPath()  : string
     {
         return $this->defaultControllerPath;
     }
@@ -383,7 +383,7 @@ Trait RouteTrait
      *
      * @return $this
      */
-    public function setDefaultControllerPath($defaultControllerPath)
+    public function setDefaultControllerPath(string $defaultControllerPath)
     {
         $this->defaultControllerPath = $defaultControllerPath;
 
@@ -413,7 +413,7 @@ Trait RouteTrait
     /**
      * @return string
      */
-    public function getDefaultAppNameSpace()
+    public function getDefaultAppNameSpace()  : string
     {
         return $this->defaultAppNameSpace;
     }
@@ -423,7 +423,7 @@ Trait RouteTrait
      *
      * @return $this
      */
-    public function setDefaultAppNameSpace($defaultAppNameSpace)
+    public function setDefaultAppNameSpace(string $defaultAppNameSpace)
     {
         $this->defaultAppNameSpace = $defaultAppNameSpace;
 
@@ -433,7 +433,7 @@ Trait RouteTrait
     /**
      * @return string
      */
-    public function getApplicationNameSpace()
+    public function getApplicationNameSpace() : string
     {
         if (!$this->applicationNameSpace) {
             $this->loadConfig();
@@ -447,7 +447,7 @@ Trait RouteTrait
      *
      * @return $this
      */
-    public function setApplicationNameSpace($applicationNameSpace)
+    public function setApplicationNameSpace(string $applicationNameSpace)
     {
         $this->applicationNameSpace = $applicationNameSpace;
 

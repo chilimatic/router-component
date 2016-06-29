@@ -70,7 +70,7 @@ class Validator
      *
      * @return bool
      */
-    private function valid_pattern($string)
+    private function valid_pattern(string $string)
     {
         return preg_match($this->_current_pattern, $string);
     }
@@ -83,7 +83,7 @@ class Validator
      *
      * @return mixed
      */
-    public function __get($property)
+    public function __get(string $property)
     {
         if (!property_exists($this, $property)) {
             return false;

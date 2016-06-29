@@ -29,7 +29,7 @@ class RouteMethodAnnotationParser implements IFlyWeightParser
      *
      * @return array
      */
-    public function parse($content)
+    public function parse(string $content) : array
     {
         $result = [];
         if (strpos($content, '@view') === false) {
@@ -61,7 +61,7 @@ class RouteMethodAnnotationParser implements IFlyWeightParser
      *
      * @return string
      */
-    public function getType($value)
+    public function getType(string $value) : string
     {
         if (strpos($value, '\\') !== false && class_exists($value)) {
             return self::TYPE_CLASS;

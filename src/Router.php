@@ -61,7 +61,7 @@ class Router implements IRouter
      * @throws RouteException
      * @throws \Exception
      */
-    public function __construct($type)
+    public function __construct(string $type)
     {
         $this->urlParser   = new UrlParser();
         $this->routeSystem = RouteSystemFactory::make($type, $this->getCurrentUrlPath());
@@ -93,7 +93,7 @@ class Router implements IRouter
      *
      * @return array
      */
-    private function parsePath($path)
+    private function parsePath(string $path)
     {
         if (empty($path)) {
             $path = Map::DEFAULT_URL_DELIMITER;

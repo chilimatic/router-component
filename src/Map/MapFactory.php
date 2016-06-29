@@ -17,7 +17,7 @@ class MapFactory
      *
      * @return Map
      */
-    public function make($path, $callback, $delimiter)
+    public function make(string $path, $callback, $delimiter)
     {
         return new Map($path, $callback, $delimiter);
     }
