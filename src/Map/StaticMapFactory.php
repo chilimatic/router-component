@@ -15,6 +15,6 @@ Interface StaticMapFactory
      *
      * @return mixed
      */
-    public static function make($type, $config);
+    public static function make(string $type, $config);
 
 }

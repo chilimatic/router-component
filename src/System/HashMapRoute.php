@@ -39,7 +39,7 @@ class HashMapRoute extends AbstractRoute
      * @param string $delimiter
      * @throws RouteException
      */
-    public function addRoute($uri, $callback, $delimiter = Map::DEFAULT_URL_DELIMITER)
+    public function addRoute(string $uri, $callback, $delimiter = Map::DEFAULT_URL_DELIMITER)
     {
         try {
             /**
@@ -60,7 +60,8 @@ class HashMapRoute extends AbstractRoute
     /**
      * adds the default route to the map
      */
-    private function setDefaultRoute() {
+    private function setDefaultRoute()
+    {
         $this->routeMap[self::PATH_ROOT] = $this->getDefaultRoute();
     }
 

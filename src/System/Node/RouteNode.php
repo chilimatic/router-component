@@ -62,7 +62,7 @@ class RouteNode extends TreeNode
         $this->initChildren();
     }
 
-    public function getMap()
+    public function getMap() : Map
     {
         return $this->getData();
     }
@@ -72,7 +72,7 @@ class RouteNode extends TreeNode
      *
      * @return string
      */
-    public function getComment()
+    public function getComment() : string
     {
         return $this->comment;
     }

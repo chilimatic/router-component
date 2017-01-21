@@ -32,7 +32,7 @@ interface IRouter
      * @throws RouteException
      * @throws \Exception
      */
-    public function __construct($type);
+    public function __construct(string $type);
 
 
 }

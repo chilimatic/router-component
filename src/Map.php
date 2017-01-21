@@ -94,7 +94,7 @@ class Map
      * @param string $delimiter
      *
      */
-    public function __construct($uri = null, $callback = null, $delimiter = '/')
+    public function __construct(string $uri = null, $callback = null, string $delimiter = '/')
     {
 
         if (empty($uri)) {
@@ -119,7 +119,7 @@ class Map
      * @return boolean Ambigous \Route\Route_Validator>
      */
 
-    private function validate($uri)
+    private function validate(string $uri)
     {
         try {
             // set to false as default
@@ -172,7 +172,7 @@ class Map
      *
      * @return boolean
      */
-    private function init($uri, $callback)
+    private function init(string $uri, $callback)
     {
 
         try {
@@ -262,7 +262,7 @@ class Map
     /**
      * @return string
      */
-    public function getDelimiter()
+    public function getDelimiter() : string
     {
         if (empty($this->_delimiter)) {
             $this->_delimiter = self::DEFAULT_URL_DELIMITER;

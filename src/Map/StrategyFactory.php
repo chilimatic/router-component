@@ -15,7 +15,7 @@ class StrategyFactory implements StaticMapFactory
      *
      * @return MapClosure|MapFunction|MapObject|mixed
      */
-    public static function make($type, $config, IFlyWeightParser $parser = null)
+    public static function make(string $type, $config, IFlyWeightParser $parser = null)
     {
         switch ($type) {
             case Map::TYPE_O:

@@ -33,7 +33,7 @@ abstract class AbstractRoute
     /**
      * @param string $path
      */
-    public function __construct($path)
+    public function __construct(string $path)
     {
         $this->path = $path;
         $this->setTransformer(new DynamicFunctionCallName());
@@ -55,6 +55,6 @@ abstract class AbstractRoute
      *
      * @return mixed
      */
-    abstract public function addRoute($uri, $callback, $delimiter = Map::DEFAULT_URL_DELIMITER);
+    abstract public function addRoute(string $uri, $callback, $delimiter = Map::DEFAULT_URL_DELIMITER);
 
 }
