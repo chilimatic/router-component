@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route;
 
 use chilimatic\lib\Route\Exception\RouteException;

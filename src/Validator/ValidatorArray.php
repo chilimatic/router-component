@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\Validator;
 
 /**
@@ -20,7 +21,7 @@ class ValidatorArray extends AbstractValidator
      *
      * @return bool
      */
-    public function validate($value)
+    public function validate($value) : bool
     {
         if (empty($value)) {
             return false;
@@ -45,7 +46,7 @@ class ValidatorArray extends AbstractValidator
      *
      * @return bool
      */
-    public function __invoke($value)
+    public function __invoke($value) : bool
     {
         return $this->validate($value);
     }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\Parser;
 
 use chilimatic\lib\Interfaces\IFlyWeightParser;
@@ -29,7 +30,7 @@ class UrlParser implements IFlyWeightParser
         }
 
         // if the last character is a delimiter remove it as well
-        if (mb_strpos($path, $this->delimiter) == mb_strlen($path) - 1) {
+        if (mb_strpos($path, $this->delimiter) === mb_strlen($path) - 1) {
             $path = mb_substr($path, 0, -1);
         }
 

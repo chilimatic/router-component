@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\Map;
 use chilimatic\lib\Interfaces\IFlyWeightParser;
 
@@ -7,7 +8,7 @@ use chilimatic\lib\Interfaces\IFlyWeightParser;
  *
  * @package chilimatic\lib\Route\Map
  */
-Interface IMapStragey
+Interface IMapStrategy
 {
 
     /**

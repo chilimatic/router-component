@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\System\Node;
 
 use chilimatic\lib\Datastructure\Graph\INode;
@@ -14,19 +15,13 @@ class RouteNode extends TreeNode
 {
 
     /**
-     * maybe some comments for the nodes
-     *
-     * @var string
-     */
-    private $comment = '';
-
-    /**
-     * @param Inode|null $parentNode
-     * @param $key
-     * @param \chilimatic\lib\Route\Map $map
+     * RouteNode constructor.
+     * @param INode|null $parentNode
+     * @param string $key
+     * @param $data
      * @param string $comment
      */
-    public function __construct(INode $parentNode = null, $key, $data,$comment = '')
+    public function __construct(INode $parentNode = null,string $key, $data, string $comment = '')
     {
         if (!$data instanceof Map) {
             throw new RouteException('Data parameter needs to be of Type Map');

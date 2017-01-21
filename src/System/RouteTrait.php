@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: j
- * Date: 11.11.14
- * Time: 17:37
- */
+declare(strict_types=1);
 namespace chilimatic\lib\Route\System;
 
 use chilimatic\lib\Di\ClosureFactory;

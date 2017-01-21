@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace chilimatic\lib\Route;
 
 
@@ -79,12 +79,12 @@ class Map
     /**
      * @var null
      */
-    private $type = null;
+    private $type;
 
     /**
-     * @var null|\chilimatic\lib\Route\Map\Generic
+     * @var null|\chilimatic\lib\Route\Map\AbstractMap
      */
-    private $strategy = null;
+    private $strategy;
 
     /**
      * general constructor
@@ -93,6 +93,7 @@ class Map
      * @param null $callback
      * @param string $delimiter
      *
+     * @throws \chilimatic\lib\Route\Exception\RouteException
      */
     public function __construct(string $uri = null, $callback = null, string $delimiter = '/')
     {
@@ -134,7 +135,7 @@ class Map
             for ($i = 0, $c = count($parts); $i < $c; $i++) {
                 if (empty($parts[$i])) {
                     continue;
-                } elseif ((strpos($parts[$i], self::VALIDATION_PREFIX)) === false) { // if there's no placeholder in use for a specific type
+                } elseif (false === strpos($parts[$i], self::VALIDATION_PREFIX)) { // if there's no placeholder in use for a specific type
                     $this->urlPart[] = $parts[$i];
                     continue;
                 }
@@ -159,7 +160,7 @@ class Map
      */
     public function __toString()
     {
-        return (string)implode(self::getDelimiter(), (array)$this->urlPart);
+        return (string)implode($this->getDelimiter(), (array)$this->urlPart);
     }
 
     /**
@@ -243,7 +244,7 @@ class Map
     }
 
     /**
-     * @return map\Generic|null
+     * @return map\AbstractMap|null
      */
     protected function getStrategy()
     {
@@ -251,7 +252,7 @@ class Map
     }
 
     /**
-     * @param map\Generic|null $strategy
+     * @param map\AbstractMap|null $strategy
      */
     public function setStrategy($strategy)
     {

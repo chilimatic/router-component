@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\Parser;
 
 use chilimatic\lib\Interfaces\IFlyWeightParser;

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\System;
 
 use chilimatic\lib\Route\Map;
@@ -55,6 +56,6 @@ abstract class AbstractRoute
      *
      * @return mixed
      */
-    abstract public function addRoute(string $uri, $callback, $delimiter = Map::DEFAULT_URL_DELIMITER);
+    abstract public function addRoute(string $uri, $callback, string $delimiter = Map::DEFAULT_URL_DELIMITER);
 
 }

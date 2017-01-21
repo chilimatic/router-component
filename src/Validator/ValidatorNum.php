@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace chilimatic\lib\Route\Validator;
 
 /**
@@ -16,15 +16,16 @@ namespace chilimatic\lib\Route\Validator;
  */
 class ValidatorNum extends AbstractValidator
 {
+    const PATTERN = '/^\d*[.,]?\d*$/';
+
     /**
      * @param mixed $value
-     *
      * @return bool
      */
-    public function validate($value)
+    public function validate($value) : bool
     {
         // generic pattern match if it's numeric [float/int/double]
-        if (!preg_match('/^\d{0,}[.,]?\d*$/', (string)$value)) {
+        if (!preg_match(self::PATTERN, (string)$value)) {
             return false;
         }
 
@@ -35,11 +36,10 @@ class ValidatorNum extends AbstractValidator
 
 
     /**
-     * (non-PHPdoc)
-     *
-     * @see \Route\Route_AbstractValidator::validate()
+     * @param mixed $value
+     * @return bool
      */
-    public function __invoke($value)
+    public function __invoke($value) : bool
     {
         return $this->validate($value);
     }

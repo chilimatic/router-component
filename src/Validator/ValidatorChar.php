@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\Validator;
 
 /**
@@ -21,7 +22,7 @@ class ValidatorChar extends AbstractValidator
      *
      * @return bool
      */
-    public function validate($value)
+    public function validate($value) : bool
     {
         return preg_match('/^\w{0,}$/', $value) && !preg_match('/^\d{0,}[.,]?\d*$/', $value);
     }
@@ -32,7 +33,7 @@ class ValidatorChar extends AbstractValidator
      *
      * @return bool
      */
-    public function __invoke($value)
+    public function __invoke($value) : bool
     {
         return $this->validate($value);
     }

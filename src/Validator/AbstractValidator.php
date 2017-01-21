@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\Validator;
 
 use chilimatic\lib\Interfaces\IFlyWeightValidator;
@@ -34,7 +35,7 @@ abstract class AbstractValidator implements IFlyWeightValidator
      *
      * @return mixed
      */
-    abstract public function validate($value);
+    abstract public function validate($value) : bool;
 
 
     /**
@@ -42,5 +43,5 @@ abstract class AbstractValidator implements IFlyWeightValidator
      *
      * @return mixed
      */
-    abstract public function __invoke($value);
+    abstract public function __invoke($value) : bool;
 }

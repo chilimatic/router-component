@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\Map;
 
 use chilimatic\lib\Route\Exception\RouteException;
@@ -15,7 +16,7 @@ class StrategyFactory implements StaticMapFactory
      *
      * @return MapClosure|MapFunction|MapObject|mixed
      */
-    public static function make(string $type, $config, IFlyWeightParser $parser = null)
+    public static function make(int $type, $config, IFlyWeightParser $parser = null) : AbstractMap
     {
         switch ($type) {
             case Map::TYPE_O:

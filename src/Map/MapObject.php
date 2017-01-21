@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\Map;
 
 use chilimatic\lib\Route\Exception\RouteException;
@@ -9,7 +10,7 @@ use chilimatic\lib\Route\parser\RouteMethodAnnotationParser;
  *
  * @package chilimatic\lib\Route\Map
  */
-class MapObject extends Generic
+class MapObject extends AbstractMap
 {
 
     const NAMESPACE_DELIMITER = '\\';
@@ -108,7 +109,7 @@ class MapObject extends Generic
      *
      * @return mixed
      */
-    public function prepareObject($object)
+    private function prepareObject($object)
     {
         $tokenList = $this->getMethodTokenList();
 
@@ -131,7 +132,7 @@ class MapObject extends Generic
     /**
      * @return mixed
      */
-    public function getMethodTokenList()
+    private function getMethodTokenList()
     {
         $reflectionMethod = $this->reflection->getMethod($this->method);
         $doc              = $reflectionMethod->getDocComment();

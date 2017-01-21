@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\Map;
 
 /**
@@ -10,11 +11,11 @@ Interface StaticMapFactory
 {
 
     /**
-     * @param $type
+     * @param int $type
      * @param $config
      *
      * @return mixed
      */
-    public static function make(string $type, $config);
+    public static function make(int $type, $config);
 
 }

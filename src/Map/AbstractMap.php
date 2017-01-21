@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route\Map;
 
 use chilimatic\lib\Interfaces\IFlyWeightParser;
@@ -8,7 +9,7 @@ use chilimatic\lib\Interfaces\IFlyWeightParser;
  *
  * @package chilimatic\lib\Route\Map
  */
-abstract class Generic implements IMapStragey
+abstract class AbstractMap implements IMapStrategy
 {
 
     /**
@@ -38,13 +39,13 @@ abstract class Generic implements IMapStragey
     /**
      * @return mixed
      */
-    abstract function init();
+    abstract public function init();
 
     /**
      * @param $param
      *
      * @return mixed
      */
-    abstract function call($param = null);
+    abstract public function call($param = null);
 
 }

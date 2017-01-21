@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace chilimatic\lib\Route\System;
 
 use chilimatic\lib\Route\Exception\RouteException;
@@ -35,11 +35,12 @@ class HashMapRoute extends AbstractRoute
 
     /**
      * @param string $uri
-     * @param string $callback
+     * @param $callback
      * @param string $delimiter
-     * @throws RouteException
+     * @return bool
+     * @throws \chilimatic\lib\Route\Exception\RouteException
      */
-    public function addRoute(string $uri, $callback, $delimiter = Map::DEFAULT_URL_DELIMITER)
+    public function addRoute(string $uri, $callback, string $delimiter = Map::DEFAULT_URL_DELIMITER) : bool
     {
         try {
             /**
@@ -55,6 +56,8 @@ class HashMapRoute extends AbstractRoute
         } catch (RouteException $e) {
             throw $e;
         }
+
+        return true;
     }
 
     /**

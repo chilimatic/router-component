@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace chilimatic\lib\Route;
 
 use chilimatic\lib\Config\Config;
@@ -15,14 +16,14 @@ class Validator
     /**
      * @var string
      */
-    const VALIDATORPREFIX = 'Validator';
+    const VALIDATOR_PREFIX = 'Validator';
 
     /**
      * validator gets the short other validators
      *
      * @var IFlyWeightValidator
      */
-    public $validator = null;
+    private $validator;
 
 
     /**
@@ -70,7 +71,7 @@ class Validator
      *
      * @return bool
      */
-    private function valid_pattern(string $string)
+    private function isValidPattern(string $string)
     {
         return preg_match($this->_current_pattern, $string);
     }
@@ -98,10 +99,10 @@ class Validator
      *
      * @return array
      */
-    private function getMatches()
+    private function getMatches() : array
     {
 
-        if (empty($this->urlPart) || !$this->validate($this->urlPart)) {
+        if (empty($this->urlPart) || !$this->validator->validate($this->urlPart)) {
             return [];
         }
 
@@ -118,25 +119,24 @@ class Validator
      *
      * @param null $urlPart
      *
-     * @internal param string $url_part
-     *
      * @return $this
+     * @throws \chilimatic\lib\Route\Exception\RouteException
      */
     public function init($urlPart = null)
     {
 
         try {
-            if (!empty($urlPart) && $this->validate($urlPart)) {
+            if (!empty($urlPart) && $this->validator->validate($urlPart)) {
                 $this->urlPart = $urlPart;
             }
 
-            if (empty($this->urlPart) || !$this->validate($this->urlPart)) {
+            if (empty($this->urlPart) || !$this->validator->validate($this->urlPart)) {
                 throw new RouteException('url part empty or not a valid pattern : ' . $this->urlPart);
             }
 
             $array = $this->getMatches();
 
-            $validator = (string)(get_class($this) . '\\') . self::VALIDATORPREFIX . ucfirst($array[1]);
+            $validator = (string)(get_class($this) . '\\') . self::VALIDATOR_PREFIX . ucfirst($array[1]);
 
             if (!class_exists($validator)) {
                 throw new RouteException('Class does not exist : ' . $validator);
